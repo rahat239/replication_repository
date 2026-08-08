@@ -1,6 +1,6 @@
 # Does Naive Cross-Validation Inflate Software Energy-Regression Prediction?
 
-Replication package for the manuscript submitted to *Expert Systems with Applications*:
+Replication package for the manuscript submitted to *Information and Software Technology*:
 **"Does Naive Cross-Validation Inflate Software Energy-Regression Prediction? A
 Leakage-Aware, Statistically-Gated, Cross-Project Empirical Study"**
 Author: Rahat Ahmed Jobu, Department of Computer Science and Engineering, BRAC University, Dhaka, Bangladesh.
@@ -9,9 +9,10 @@ Author: Rahat Ahmed Jobu, Department of Computer Science and Engineering, BRAC U
 
 ```
 .
-├── manuscript.tex              # Full LaTeX source (elsarticle, ESWA format)
+├── manuscript.tex              # Full LaTeX source (elsarticle, elsarticle-num citation style)
 ├── references.bib              # Bibliography (all entries independently verified)
-├── highlights.txt              # ESWA-required Highlights file
+├── highlights.txt              # Elsevier-required Highlights file
+├── cover_letter.txt            # Cover letter to the Information and Software Technology editor
 ├── data/
 │   ├── energy_regression_dataset.csv     # Full benchmark: 3,684 labeled commit transitions
 │   ├── threshold_sensitivity.csv         # 5-threshold sensitivity sweep results
@@ -45,7 +46,7 @@ completes in under a minute.
 
 **From source**, in order:
 ```bash
-pip install pandas numpy scikit-learn scipy shap xgboost statsmodels matplotlib
+pip install -r requirements.txt
 
 python code/01_build_dataset.py        # builds data/energy_regression_dataset.csv from scratch
 python code/02_ablation_test.py        # reproduces Table 5 (feature ablation)
@@ -60,9 +61,10 @@ manuscript's Methodology section.
 ## Environment
 
 - Python 3.12
-- Key package versions used in the original runs: scikit-learn (current stable as of Aug 2026),
-  xgboost, scipy, statsmodels, shap, pandas, numpy, matplotlib. No GPU required; all experiments
-  run on CPU in a few minutes total.
+- Exact package versions pinned in `requirements.txt` (scikit-learn 1.8.0, xgboost 3.4.0,
+  scipy 1.17.1, pandas 3.0.2, numpy 2.4.4, shap 0.52.0, statsmodels 0.14.6), matching the
+  Computational Environment paragraph in the manuscript's Methodology section (Section 3.6).
+  No GPU required; all experiments run on CPU in a few minutes total.
 
 ## What this repository does NOT contain
 
