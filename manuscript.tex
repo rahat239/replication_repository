@@ -141,6 +141,7 @@ The final benchmark comprises 3{,}684 labeled commit transitions (3{,}015 Java, 
 \centering
 \caption{Per-project dataset composition. ``Naive'' and ``Gated'' report regression counts under the bare-threshold and statistically-gated labeling protocols, respectively (Section~\ref{sec:labeling}).}
 \label{tab:breakdown}
+\resizebox{\textwidth}{!}{%
 \begin{tabular}{@{}llrrrr@{}}
 \toprule
 Language & Project & Transitions & Naive regressions & Gated regressions & Positive rate \\
@@ -157,7 +158,8 @@ Java & super-csv     & 80   & 3  & 3  & 0.038 \\
 \midrule
 \multicolumn{2}{l}{\textbf{Total}} & \textbf{3684} & \textbf{52} & \textbf{52} & \textbf{0.014} \\
 \bottomrule
-\end{tabular}
+\end{tabular}%
+}
 \end{table}
 
 \begin{figure}[htbp]
@@ -188,6 +190,7 @@ We note an important discrepancy between the two metrics: PR-AUC under the naive
 \centering
 \caption{Evaluation results across the three protocols (mean $\pm$ std. across folds) and the corresponding dummy-classifier baseline.}
 \label{tab:protocols}
+\resizebox{\textwidth}{!}{%
 \begin{tabular}{@{}lccc@{}}
 \toprule
 Protocol & ROC-AUC & PR-AUC (Avg. Precision) & Dummy baseline (ROC-AUC) \\
@@ -196,7 +199,8 @@ Naive (random 5-fold)          & 0.681 $\pm$ 0.087 & 0.051 $\pm$ 0.018 & 0.502 \
 Project-grouped (leave-one-out) & 0.545 $\pm$ 0.230 & 0.101 $\pm$ 0.147 & 0.504 \\
 Cluster-disjoint (5-fold)       & 0.659 $\pm$ 0.073 & 0.058 $\pm$ 0.031 & 0.493 \\
 \bottomrule
-\end{tabular}
+\end{tabular}%
+}
 \end{table}
 
 \begin{figure}[htbp]
@@ -225,6 +229,7 @@ Table~\ref{tab:threshold} and Figure~\ref{fig:threshold} report the naive and pr
 \centering
 \caption{Threshold sensitivity: naive vs.\ project-grouped ROC-AUC across five regression-labeling thresholds.}
 \label{tab:threshold}
+\resizebox{\textwidth}{!}{%
 \begin{tabular}{@{}crccc@{}}
 \toprule
 Threshold & \# Positive & Naive ROC-AUC & Grouped ROC-AUC & Gap \\
@@ -235,7 +240,8 @@ Threshold & \# Positive & Naive ROC-AUC & Grouped ROC-AUC & Gap \\
 25\% & 50 & 0.683 & 0.540 & 0.143 \\
 30\% & 49 & 0.679 & 0.534 & 0.145 \\
 \bottomrule
-\end{tabular}
+\end{tabular}%
+}
 \end{table}
 
 \begin{figure}[htbp]
@@ -253,6 +259,7 @@ Section~\ref{sec:discussion} (in an earlier draft) flagged, as an untested hypot
 \centering
 \caption{Feature-ablation results: naive-vs-project-grouped ROC-AUC gap with and without the previous-commit energy baseline feature.}
 \label{tab:ablation}
+\resizebox{\textwidth}{!}{%
 \begin{tabular}{@{}lccc@{}}
 \toprule
 Feature set & Naive ROC-AUC & Grouped ROC-AUC & Bootstrap gap (95\% CI) \\
@@ -260,7 +267,8 @@ Feature set & Naive ROC-AUC & Grouped ROC-AUC & Bootstrap gap (95\% CI) \\
 With \texttt{log\_prev\_energy} (full)   & 0.675 & 0.506 & 0.168 [0.112, 0.232] \\
 Without \texttt{log\_prev\_energy}       & 0.580 & 0.517 & 0.064 [0.008, 0.122] \\
 \bottomrule
-\end{tabular}
+\end{tabular}%
+}
 \end{table}
 
 \subsection{Robustness across algorithms}
@@ -292,6 +300,7 @@ Table~\ref{tab:heuristic} compares the fitted models against the churn-magnitude
 \centering
 \caption{Fitted models vs. the training-free churn-magnitude heuristic baseline (Section~\ref{sec:heuristic}), pooled out-of-fold ROC-AUC.}
 \label{tab:heuristic}
+\resizebox{\textwidth}{!}{%
 \begin{tabular}{@{}lccc@{}}
 \toprule
 Model & Naive ROC-AUC & Project-grouped ROC-AUC & Naive$-$grouped gap \\
@@ -301,7 +310,8 @@ Random Forest        & 0.681 & 0.545 & 0.136 \\
 XGBoost               & 0.678 & 0.416 & 0.262 \\
 Logistic Regression   & 0.700 & 0.768 & $-0.068$ \\
 \bottomrule
-\end{tabular}
+\end{tabular}%
+}
 \end{table}
 
 Two findings are worth stating plainly rather than downplaying. First, the heuristic's own naive-vs-grouped gap (0.026) is far smaller than Random Forest's (0.136) or XGBoost's (0.262), consistent with our broader argument that naive-protocol inflation is substantially a property of what fitted models learn to exploit (Section~\ref{sec:ablation}), not an inherent property of the underlying task. Second, and more humbling, the untrained heuristic's project-grouped ROC-AUC (0.616) exceeds both Random Forest (0.545) and XGBoost (0.416) under the realistic evaluation protocol, and is only modestly below logistic regression's raw fold-mean (0.768, though recall from Section~\ref{sec:algcompare} that this specific number is unstable and the more reliable pooled logistic-regression estimate is 0.622, essentially matching the heuristic). This indicates that, at the current feature-engineering maturity of this task, a simple, well-established, training-free rule from the defect-prediction literature~\citep{nagappan2005churn} is a genuinely competitive predictor -- the added complexity of tree-based ensembles does not yet demonstrate a clear, reliable advantage over it under realistic cross-project deployment conditions. We report this honestly as a finding that tempers any impression that machine learning is straightforwardly necessary or beneficial for this task as currently formulated, rather than omitting or minimizing it.
@@ -378,6 +388,9 @@ The raw energy measurements underlying this study are publicly available from th
 
 \section*{Acknowledgments}
 The author thanks the EnergyTrackr project team for making their raw energy measurement data publicly available, which made this study possible without dedicated energy-measurement hardware.
+
+\section*{Declaration of Generative AI and AI-assisted technologies in the writing process}
+During the preparation of this work, the author used ChatGPT (OpenAI) to assist with restructuring sentences for clarity and generating candidate ideas during drafting. After using this tool, the author reviewed and edited the content as needed and takes full responsibility for the content of the publication.
 
 \bibliographystyle{elsarticle-num}
 \bibliography{references}
