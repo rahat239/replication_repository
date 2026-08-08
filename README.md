@@ -21,7 +21,8 @@ Author: Rahat Ahmed Jobu, Department of Computer Science and Engineering, BRAC U
 │   ├── 01_build_dataset.py     # Clones EnergyTrackr data + 9 source repos, builds the benchmark
 │   ├── 02_ablation_test.py     # log_prev_energy feature ablation
 │   ├── 03_algorithm_comparison.py  # Multi-algorithm robustness check
-│   └── 04_make_figures.py      # Generates all 7 manuscript figures from data/
+│   ├── 04_make_figures.py      # Generates all 7 manuscript figures from data/
+│   └── 05_heuristic_baseline.py    # Training-free churn-magnitude baseline (Table 7)
 ├── figures/                    # All 7 figures as vector PDFs (as used in the manuscript)
 └── notebook/
     └── energy_regression_prediction_v2.ipynb  # Interactive Colab notebook, runs end-to-end
@@ -50,6 +51,7 @@ python code/01_build_dataset.py        # builds data/energy_regression_dataset.c
 python code/02_ablation_test.py        # reproduces Table 5 (feature ablation)
 python code/03_algorithm_comparison.py # reproduces Table 6 (algorithm comparison)
 python code/04_make_figures.py         # reproduces all 7 figures
+python code/05_heuristic_baseline.py   # reproduces Table 7 (heuristic baseline)
 ```
 
 All scripts use a fixed random seed (`RANDOM_SEED = 42`) throughout, as stated in the
@@ -86,4 +88,4 @@ the license governing the underlying raw measurement data.
 
 ## Contact
 
-Rahat Ahmed Jobu — rahat.ahmed.jobu@g.bracu.ac.bd
+Rahat Ahmed Jobu — rahatahmed537@gmail.com
