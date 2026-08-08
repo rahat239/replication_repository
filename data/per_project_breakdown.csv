@@ -1,0 +1,10 @@
+language,project,n_transitions,n_regressions,n_naive_regressions,positive_rate
+go,fiber,538,0,0,0.0
+go,nscache,131,3,3,0.0229
+java,docx4j,90,7,7,0.0778
+java,fastexcel,637,15,15,0.0235
+java,flexy-pool,10,0,0,0.0
+java,jacoco,199,5,5,0.0251
+java,jsoup,1985,19,19,0.0096
+java,signalfx-java,14,0,0,0.0
+java,super-csv,80,3,3,0.0375

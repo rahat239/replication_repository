@@ -1,0 +1,10 @@
+Highlights
+
+Manuscript title: Does Naive Cross-Validation Inflate Software Energy-Regression Prediction?
+A Leakage-Aware, Statistically-Gated, Cross-Project Empirical Study
+
+- First cross-project, cross-language benchmark for energy-regression prediction.
+- Naive evaluation inflates ROC-AUC by 0.168 vs. leakage-aware evaluation (p<0.0001).
+- Gap confirmed via cluster-aware bootstrap and across 3 algorithm families.
+- Feature ablation traces 62% of the gap to a project-identity-correlated feature.
+- Manual audit finds only half of labeled regressions are construct-valid.

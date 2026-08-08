@@ -1,0 +1,10 @@
+__pycache__/
+*.pyc
+.ipynb_checkpoints/
+repos/
+energytrackr-data/
+*.aux
+*.bbl
+*.blg
+*.log
+*.out
