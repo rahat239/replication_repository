@@ -1,0 +1,54 @@
+Rahat Ahmed Jobu
+Department of Computer Science and Engineering
+BRAC University, Dhaka, Bangladesh
+rahatahmed537@gmail.com
+
+Editor-in-Chief
+Expert Systems with Applications
+
+Dear Editor,
+
+I am submitting my manuscript, "Does Naive Cross-Validation Inflate Software
+Energy-Regression Prediction? A Leakage-Aware, Statistically-Gated, Cross-Project
+Empirical Study," for consideration as an original research article in Expert Systems
+with Applications.
+
+Software energy consumption is an increasingly important applied concern as
+organizations adopt sustainability requirements alongside functional and performance
+requirements. This manuscript builds, to my knowledge, the first cross-project,
+cross-language machine learning benchmark for predicting energy-regressing code
+commits, and uses it to demonstrate a methodological finding with direct practical
+consequences for anyone deploying intelligent systems in this space: standard
+random-split evaluation protocols overstate a model's real-world predictive performance
+by a statistically significant and practically meaningful margin (pooled ROC-AUC 0.675
+vs. 0.506 under a realistic, leakage-aware evaluation; bootstrap 95% CI [0.112, 0.232],
+p<0.0001). We show this
+result is robust across three algorithm families, survives a battery of statistical
+robustness checks (false-discovery-rate correction, cluster-aware bootstrapping, a
+feature-ablation study isolating the leakage mechanism), and we further show that a
+simple, well-established, training-free heuristic from the software engineering
+literature is competitive with substantially more complex fitted models under realistic
+conditions.
+
+I believe this manuscript is well-suited to Expert Systems with Applications for three
+reasons. First, it directly concerns the reliability of intelligent systems intended for
+real deployment: a system that appears highly accurate in development but degrades
+sharply in production is a practical failure mode of exactly the kind this journal's
+readership builds and evaluates such systems to avoid. Second, the manuscript
+contributes a reusable, publicly released benchmark and evaluation protocol that
+future applied systems in this space can build on and be honestly measured against.
+Third, in keeping with the transparency this journal values, the manuscript reports its
+own negative and disconfirming findings in full -- including a manual audit that
+qualifies the benchmark's label quality, and the finding that our fitted models do not
+yet reliably outperform a simple heuristic baseline -- rather than presenting only
+favorable results.
+
+This manuscript is original, has not been published previously, and is not under
+consideration elsewhere. I have no conflicts of interest to declare. All data, code, and
+the benchmark dataset constructed for this study are made publicly available to support
+reproducibility.
+
+Thank you for considering this manuscript. I look forward to the reviewers' feedback.
+
+Sincerely,
+Rahat Ahmed Jobu
