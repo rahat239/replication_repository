@@ -14,12 +14,12 @@ plt.rcParams.update({
     "axes.spines.top": False, "axes.spines.right": False,
     "figure.dpi": 200,
 })
-FIGDIR = "./figures"
+FIGDIR = "/home/claude/manuscript/figures"
 RANDOM_SEED = 42
 
-df = pd.read_csv("./data/energy_regression_dataset.csv")
-thresh_df = pd.read_csv("./data/threshold_sensitivity.csv")
-breakdown_df = pd.read_csv("./data/per_project_breakdown.csv")
+df = pd.read_csv("/home/claude/pipeline_test/artifacts_v2/energy_regression_dataset.csv")
+thresh_df = pd.read_csv("/home/claude/pipeline_test/artifacts_v2/threshold_sensitivity.csv")
+breakdown_df = pd.read_csv("/home/claude/pipeline_test/artifacts_v2/per_project_breakdown.csv")
 
 df["log_churn"] = np.log1p(df["net_churn"])
 df["log_files"] = np.log1p(df["files_changed"])
@@ -242,9 +242,9 @@ print("Fig 6 saved. sv shape:", sv.shape)
 # ============================================================ Fig 7: near-duplicate audit
 sig_counts = df["feat_signature"].value_counts()
 dup_sizes = sig_counts.values
-fig, ax = plt.subplots(figsize=(6.5, 4))
+fig, ax = plt.subplots(figsize=(7.5, 4.2))
 ax.hist(dup_sizes, bins=np.arange(1, 40) - 0.5, color="#dd8452", alpha=0.85, edgecolor="white")
-ax.set_xlabel("Near-duplicate signature group size (commits sharing an identical diff signature)")
+ax.set_xlabel("Near-duplicate signature group size")
 ax.set_ylabel("Number of such groups")
 ax.set_yscale("log")
 pct_dup = (sig_counts[sig_counts > 1].sum() / len(df)) * 100
@@ -275,6 +275,6 @@ def _default(o):
     if isinstance(o, (np.integer,)): return int(o)
     if isinstance(o, (np.floating,)): return float(o)
     raise TypeError
-with open("./results_summary.json", "w") as f:
+with open("/home/claude/manuscript/results_summary.json", "w") as f:
     json.dump(summary, f, indent=2, default=_default)
 print("\nSummary:", json.dumps(summary, indent=2, default=_default))
