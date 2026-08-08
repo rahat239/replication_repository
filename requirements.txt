@@ -1,9 +1,9 @@
-pandas
-numpy
-scikit-learn
-scipy
-shap
-xgboost
-statsmodels
+pandas==3.0.2
+numpy==2.4.4
+scikit-learn==1.8.0
+scipy==1.17.1
+shap==0.52.0
+xgboost==3.4.0
+statsmodels==0.14.6
 matplotlib
 nbformat
